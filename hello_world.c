@@ -2,5 +2,5 @@
 void main()
 {
    printf("my name is nikitha");
-   return(0);
+   return 0;
 }
