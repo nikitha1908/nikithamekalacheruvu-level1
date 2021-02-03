@@ -10,4 +10,5 @@
  scanf("%f",&b);
  sum=a+b;
  printf("%f",sum);
+ return 0;
 }
