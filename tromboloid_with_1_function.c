@@ -7,7 +7,7 @@ int main()
     float h,d,b,vol;
     printf("enter height value");
     scanf("%f",&h);
-    printf("enter distance value");
+    printf("enter depth value");
     scanf("%f",&d);
     printf("enter breath value");
     scanf("%f",&b);
