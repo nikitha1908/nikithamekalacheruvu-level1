@@ -1,0 +1,99 @@
+#include<stdio.h>
+typedef struct
+{
+ char name[10];
+ int minutes_worked;
+}time_card;
+typedef struct
+{
+  char employee_name[10];
+  float hourly_wage;
+  int n_time_card;
+ float hours_worked;
+ float minutes_worked;
+ float total_time;
+ float gross_pay;
+}employee;
+int input_n()
+{
+   int n;
+   printf("enter the no of employees(<=20)=");
+   scanf("%d",&n);
+    if(n<=20)
+      return n;
+   else 
+       printf("incorrect input");
+return 0;
+}
+employee input_employee()
+{
+employee E;
+printf("enter employee's name and hourly wage=");
+scanf("%s%f",&E.employee_name,&E.hourly_wage);
+ return E;
+}
+void input_n_employee(int n,employee E[n])
+{
+  for(int i=0;i<n;i++)
+    {
+        E[i]=input_employee();
+    }
+}
+time_card input_time_card();
+{
+   time_card T;
+   printf("enter the employee's name and corresponding minutes worked=");
+   scaf("%s%d",&E.employee_name,&T.minutes_worked);
+return T;
+}
+void input_n_time_cards(int n,employee E[n])
+{
+   printf("enter the number of time cards=");
+   scanf("%d",&E->n_time_card);
+  for(int i=0;i<E->n_time_card;i++)
+     {
+           E->T[i]=input_time_card;
+      }
+ }
+void compute_time_card(time_card*T,employee*E)
+{  
+      if(strcmp(E->employee_name,T->name)==0)
+      {
+          E->hours_worked=T->minutes_worked/60;
+          E->minutes_worked=T->minutes_worked%60;
+          E->total_time=E->hours_worked+(E->minutes_worked/100);
+          if(E->total_time>40)
+              E->gross_pay=1.5*E->hourly_wage*E->total_time;
+          else
+              E->gross_pay=1*E->hourly_wage*E->total_time;
+        }
+}
+void compute_employee(employee*E)
+{
+     for(int i=0;i<E->n_time_card;i++)
+     {
+         compute_time_card(&E->T[i],E);
+      }
+}
+void output_employee(employee E)
+{
+     scanf("%s:%.2f,%.2f",E.employee_name,E.hours_worked,E.gross_pay);
+}
+void output_n_employee(int n,employee E[n])
+{
+    for(int i=0;i<n;i++)
+     {
+         output_employee(E[i]);
+      }
+}
+int main()
+{
+  int n;
+  n=input_n();
+  employee E[n];
+  input_n_employee(n,E);
+  input_n_time_card(n,E);
+ compute_n_employee(n,E);
+ output_n_employee(n,E);
+  return 0;
+}
