@@ -1,0 +1,85 @@
+#include<stdio.h>
+#include<math.h>
+typedef struct
+{
+	float length;
+	float breadth;
+	float area;
+          vertex v[3];
+}rectangle;
+int input_rectangle()
+{
+  int n;
+  printf("enter no of the test cases=");
+  scanf("%d",&n);
+  return n;
+}
+rectangle input_rectangle()
+ {
+rectangle rec;
+             for(int i=0;i<3;i++)
+     {
+           scanf("%f%f",&rec.v[i].x,&rec.v[i].y);
+     }
+  return rec;
+}
+void input_n_rectangle(int n,rectangle rec[n])
+{
+    for(int i=0;i<n;i++)
+     {
+         rec[i]=input_rectangle();
+     }
+}
+float max(float side1,float side2,float side3)
+{
+   if(side1>side2&&side1>side3)
+              return side1;
+  else if(side2>side1&&side2>side3)
+             return side2;
+  else  
+           return side3;
+}
+float min(float side1,float side2,float side3)
+{
+     if(side1<side2&&side1<side3)
+          return side1;
+    else if(side2<side1&&side2<side3)
+           return side2;
+else
+         return side3;
+}
+void compute_rectangle(rectangle*rec)
+{
+    float side1,side2,side3,max_side,min_side,sum;
+side1=sqrt(pow((rec->v[0].x-rec>v[1].x),2)+pow((rec->v[0].y-rec>v[1].y),2));
+side2=sqrt(pow((rec->v[2].x-rec>v[1].x),2)+pow((rec->v[2].y-rec>v[1].y),2));
+side3=sqrt(pow((rec->v[2].x-rec>v[0].x),2)+pow((rec->v[2].y-rec>v[0].y),2));
+max_side=max(side1,side2,side3);
+min_side=min(side1,side2,side3);
+sum=side1+side2+side3;
+rec->breadth=sum-min_side-max_side;
+rec->length=min_side;
+rec->area=r->length*r->breadth;
+}
+void output_rectangle(rectangle rec);
+{
+   printf("AREA OF THE RECTANGLE WITH VERTICES (%1.f,%.1f),(%1.f,%.1f),(%1.f,%1.f) is %.1f"r.v[0].x,r.v[0].y,r.v[1].x,r.v[1].y,r.v[2].x,r.v[2].y,r.area);
+}
+void output_n_rectangle(int n,rectangle rec[n])
+{
+    for(int i=0;i<n;i++)
+      {
+         output_rectangle(rec[i]);
+      }
+}
+int main()
+{
+      int n;
+      n=intput_n();
+      rectangle rec[n];
+      input_n_rectangle(n,rec);
+      compute_n_rectangle(n,rec);
+     output_n_rectangle(n,rec);
+      return 0;
+}
+
