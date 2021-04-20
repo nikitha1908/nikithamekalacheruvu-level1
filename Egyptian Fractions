@@ -1,0 +1,94 @@
+#include<stdio.h>
+typedef struct
+{
+ int n:
+int num [10];
+int deno[10];
+int final_num;
+int final_deno;
+}fraction;
+int input_n()
+{
+int n;
+printf("enter no of the test case");
+scanf("%d",&n);
+return n;
+}
+fraction input_fraction()
+  {
+   fraction fra;
+  printf("enter the no of the fractions");
+  scanf("%d",&fra.n);
+for(int i=0;i<fra.n;i++)
+    {
+     printf("enter denominator of the fraction");
+scanf("%d",&fra.denominator[i]);
+fra.num[i]=1;
+   }
+return fra;
+ }
+void input_n_fraction(int n,fraction f[n])
+{
+     for(int i=0;i<n;i++)
+       {
+           fra[i]=input_fraction();
+        }
+}
+int find_gcd(int a,int b)
+{
+  while (a!=b)
+    {
+         if(a>b)
+            a-=b;
+        else
+             b-=a;
+     }
+        return a;
+}
+void compute_fraction(fraction*fra)
+{
+       int final_num=0,final_deno=1,gcd;
+       for(int i=0;i<fra->n;i++)
+       {
+           final_deno*=fra->deno[i];
+        }
+        for(int i=0;i<f->n;i++)
+        {
+           final_num+=(fra->num[i])*(final_deno/f->deno[i]);
+        }
+        gcd=find_gcd(final_num,final_deno);
+        fra->final_num=final_num/gcd;
+       fra->final_deno=final_deno/gcd;
+}
+void compute_n_fraction(int n,fraction fra[n])
+{
+   for(int i=0;i<n;i++)
+      {
+         compute_fraction(&fra[i]);
+      }
+}
+void output_fraction(int n,fraction fra)
+{
+  for(int i=0;i<fra.n-1;i++)
+    {
+      printf("%d/%d+",fra.num[i],fra.deno[i]);
+    }
+     printf("%d/%d",fra.num[fra.n-1],fra.deno[fra.n-1],final_num,fra.final_deno);
+}
+void output_n_fraction(int n,fraction fra[n])
+  {
+        for(int i=0;i<n;i++)
+         {
+              output_fraction(n,frac[i]);
+          }
+}
+int main()
+{
+   int n;
+   n=input_n();
+   fraction fra[n];
+  input_n_ fraction(n,fra);
+ output_n_fraction(n,fra);
+ compute_n_fraction(n,fra);
+ return 0;
+}
